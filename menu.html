@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Menu - Green Point Restaurant</title>
+    <link rel="stylesheet" href="CSS/menu.css">
+    <link rel="stylesheet" href="CSS/sheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/GREEN POINT.png" alt="Green Point Restaurant Logo">
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Our Menu</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="burger">☰</div>
+    </nav>
+
+    <!-- Menu Header with Sliding Background -->
+    <header class="menu-header">
+        <div class="menu-slides">
+            <div class="menu-slide active" style="background-image: url('images/menu1.jpg');"></div>
+            <div class="menu-slide" style="background-image: url('images/menu2.jpg');"></div>
+            <div class="menu-slide" style="background-image: url('images/menu3.jpg');"></div>
+        </div>
+        <div class="menu-header-content">
+            <h1>Our Menu</h1>
+            <p>Authentic Ugandan Flavors • Fresh Ingredients Daily</p>
+        </div>
+    </header>
+
+    <!-- Menu Container -->
+    <div class="menu-container">
+        <!-- Breakfast Section -->
+        <section class="menu-category">
+            <div class="category-header">
+                <i class="fas fa-coffee category-icon"></i>
+                <h2>Breakfast</h2>
+            </div>
+            
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="images/black tea.jpg" alt="Black Tea" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>Black Tea</span>
+                            <span class="item-price">UGX 2,000</span>
+                        </div>
+                        <p class="item-description">Traditional Ugandan black tea served hot</p>
+                        <button class="add-to-cart" data-name="Black Tea" data-price="2000">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images/african tea.jpg" alt="African Tea" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>African Tea</span>
+                            <span class="item-price">UGX 3,000</span>
+                        </div>
+                        <p class="item-description">Spiced tea with milk and ginger</p>
+                        <button class="add-to-cart" data-name="African Tea" data-price="3000">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images/milk tea.jpg" alt="White Tea" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>White Tea</span>
+                            <span class="item-price">UGX 4,000</span>
+                        </div>
+                        <p class="item-description">Milk tea with a hint of vanilla</p>
+                        <button class="add-to-cart" data-name="White Tea" data-price="4000">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images/chapati.jpg" alt="Chapati" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>Chapati</span>
+                            <span class="item-price">UGX 1,500</span>
+                        </div>
+                        <p class="item-description">Freshly made East African flatbread</p>
+                        <button class="add-to-cart" data-name="Chapati" data-price="1500">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images/samsa.jpg" alt="Samsa" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>Samsa (3 pieces)</span>
+                            <span class="item-price">UGX 1,000</span>
+                        </div>
+                        <p class="item-description">Crispy samosas with vegetable, cowpeas and beef filling</p>
+                        <button class="add-to-cart" data-name="Samsa (3 pieces)" data-price="1000">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/rolex.jpg" alt="Uganda Rolex" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>Uganda Rolex</span>
+                            <span class="item-price">UGX 4,000</span>
+                        </div>
+                        <p class="item-description">Test the sweetness of Uganda egg and Chapati plus vegetable to your new experince</p>
+                        <button class="add-to-cart" data-name="Uganda Rolex" data-price="4000">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Fast Foods Section -->
+        <section class="menu-category">
+            <div class="category-header">
+                <i class="fas fa-hamburger category-icon"></i>
+                <h2>Fast Foods</h2>
+            </div>
+            
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="images/chips.jpg" alt="Chips Plain" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>Chips Plain</span>
+                            <span class="item-price">UGX 5,000</span>
+                        </div>
+                        <p class="item-description">Freshly fried potato chips</p>
+                        <button class="add-to-cart" data-name="Chips Plain" data-price="5000">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images/chips & chicken.jpg" alt="Chips and Chicken" class="item-image">> 
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>Chips and Chicken</span>
+                            <span class="item-price">UGX 15,000</span>
+                        </div>
+                        <p class="item-description">Crispy fried chicken with chips</p>
+                        <button class="add-to-cart" data-name="Chips and Chicken" data-price="15000">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Drinks Section -->
+        <section class="menu-category">
+            <div class="category-header">
+                <i class="fas fa-glass-whiskey category-icon"></i>
+                <h2>Drinks</h2>
+            </div>
+            
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="images/1.5 lr.png" alt="Rwenzori Water" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>1.5ltrs Rwenzori Water</span>
+                            <span class="item-price">UGX 2,500</span>
+                        </div>
+                        <button class="add-to-cart" data-name="1.5ltrs Rwenzori Water" data-price="2500">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images/rwenzoriwater.jpg" alt="Rwenzori Water" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>500ml Rwenzori Water</span>
+                            <span class="item-price">UGX 1,500</span>
+                        </div>
+                        <button class="add-to-cart" data-name="500ml Rwenzori Water" data-price="1500">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images/sodas.jpg" alt="Soda" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>Soda</span>
+                            <span class="item-price">UGX 1,500</span>
+                        </div>
+                        <p class="item-description">Various flavors available</p>
+                        <button class="add-to-cart" data-name="Soda" data-price="1500">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images/passion juice.jpg" alt="Passion Juice" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>Passion Juice</span>
+                            <span class="item-price">UGX 2,000</span>
+                        </div>
+                        <p class="item-description">Fresh passion fruit juice</p>
+                        <button class="add-to-cart" data-name="Passion Juice" data-price="2000">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images/banana juice.jpg" alt="Banana Juice" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>Akabissi/Banana Juice</span>
+                            <span class="item-price">UGX 3,000</span>
+                        </div>
+                        <p class="item-description">Traditional banana juice</p>
+                        <button class="add-to-cart" data-name="Akabissi/Banana Juice" data-price="3000">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Lunch Section -->
+        <section class="menu-category">
+            <div class="category-header">
+                <i class="fas fa-utensils category-icon"></i>
+                <h2>Lunch</h2>
+            </div>
+            
+            <div class="lunch-note">
+                Served with your choice of: Rice, Matooke, Yam, Cassava, Sweet potato, Kallo/millet bread, Posho among others
+            </div>
+            
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="images/fresh beans.jpg" alt="Fresh Beans" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>Fresh Beans</span>
+                            <span class="item-price">UGX 6,000</span>
+                        </div>
+                        <p class="item-description">Slow-cooked beans with onions and tomatoes</p>
+                        <button class="add-to-cart" data-name="Fresh Beans" data-price="6000">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images/cow peas.jpg" alt="Cow Peas" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>Cow Peas</span>
+                            <span class="item-price">UGX 8,000</span>
+                        </div>
+                        <p class="item-description">Traditional cow peas stew</p>
+                        <button class="add-to-cart" data-name="Cow Peas" data-price="8000">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images/beef.jpg" alt="Beef" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>Beef</span>
+                            <span class="item-price">UGX 10,000</span>
+                        </div>
+                        <p class="item-description">Tender beef stew with local spices</p>
+                        <button class="add-to-cart" data-name="Beef" data-price="10000">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images/dry fish.jpg" alt="Dry Fish" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>Dry Fish</span>
+                            <span class="item-price">UGX 10,000</span>
+                        </div>
+                        <p class="item-description">Sun-dried fish with peanut sauce</p>
+                        <button class="add-to-cart" data-name="Dry Fish" data-price="10000">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images/Fresh Fish.jpg" alt="Fresh Fish" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>Fresh Fish</span>
+                            <span class="item-price">UGX 20,000</span>
+                        </div>
+                        <p class="item-description">Stright from the soures of Lake Victoria to your serving dish with your choice of sauce</p>
+                        <button class="add-to-cart" data-name="Fresh Fish" data-price="20000">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images/Goat meat.jpg" alt="Chevon" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>Chevon (Goat's Meat)</span>
+                            <span class="item-price">UGX 12,000</span>
+                        </div>
+                        <p class="item-description">Tender goat meat stew with local spices to your dishe for new experince.</p>
+                        <button class="add-to-cart" data-name="Chevon (Goat's Meat)" data-price="12000">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images/luwombo beaf.jpg" alt="Luwombo of Beef" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>Luwombo of Beef</span>
+                            <span class="item-price">UGX 12,000</span>
+                        </div>
+                        <p class="item-description">Traditional steamed beef in banana leaves</p>
+                        <button class="add-to-cart" data-name="Luwombo of Beef" data-price="12000">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images/luwombo of meat and GNuts.png" alt="Luwombo of Beef and G. Nuts" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>Luwombo of Beef and G. Nuts</span>
+                            <span class="item-price">UGX 15,000</span>
+                        </div>
+                        <p class="item-description">Beef with groundnut sauce in banana leaves</p>
+                        <button class="add-to-cart" data-name="Luwombo of Beef and G. Nuts" data-price="15000">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images/Fish luwombo.jpg" alt="Luwombo of Fish and G. Nuts" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>Luwombo of Fish and G. Nuts</span>
+                            <span class="item-price">UGX 15,000</span>
+                        </div>
+                        <p class="item-description">Fish with groundnut sauce in banana leaves</p>
+                        <button class="add-to-cart" data-name="Luwombo of Fish and G. Nuts" data-price="15000">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images/chicken luwombo.jpg" alt="Luwombo of Chicken" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">
+                            <span>Luwombo of Chicken | Box</span>
+                            <span class="item-price">UGX 18,000</span>
+                        </div>
+                        <p class="item-description">Chicken steamed in banana leaves with sauce</p>
+                        <button class="add-to-cart" data-name="Luwombo of Chicken | Box" data-price="18000">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Order</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added here dynamically -->
+        </div>
+        <div class="cart-total">
+            Total: <span id="cartTotal">UGX 0</span>
+        </div>
+        <div class="cart-actions">
+            <button class="cart-button clear-cart">Clear</button>
+            <button class="cart-button checkout-btn">Order Now</button>
+        </div>
+    </div>
+
+    <!-- Cart Toggle Button -->
+    <div class="cart-toggle" id="cartToggle">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Important Info</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Our Menu</a></li>
+                    <li><a href="about-us.html">About us</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Visit Us</h3>
+                <p>Loum Street, Kampala</p>
+                <p>Zai Plaza</p>
+                <p>Open Monday-Saturday, 9am-7pm</p>
+                <div class="footer-section">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>WhatsApp: +256701283118</p>
+                <p>Call: +256787150374</p>
+                <p>Email: greenpointrestaurant@gmail.com</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Feedback</h3>
+                <p>We value your opinion</p>
+                <textarea placeholder="Your feedback..."></textarea>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Green Point Restaurant. All Rights Reserved.</p>
+            <p>We deliver around Kampala City</p>
+        </div>
+    </footer>
+
+    <script src="style/menu.js"></script>
+</body>
+</html>

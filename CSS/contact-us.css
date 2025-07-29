@@ -1,0 +1,221 @@
+:root {
+    --dark-green: #042222;
+    --deep-green: #031A09;
+    --accent-green: #1D503A;
+    --light-green: #E2F87B;
+    --orange: #FF6016;
+    --cream: #FAF5EE;
+    --text-dark: #30382F;
+}
+        
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-dark);
+    background-color: var(--cream);
+}
+ 
+/* Hero Section */
+.contact-hero {
+    height: 93vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('CALL.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--cream);
+    padding: 0 1rem;
+}
+        
+.contact-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+        
+.contact-hero p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+        
+/* Contact Container */
+.contact-container {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+        
+/* Contact Info */
+.contact-info {
+    background-color: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+        
+.contact-info h2 {
+    font-size: 2rem;
+    color: var(--accent-green);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--orange);
+    padding-bottom: 0.5rem;
+}
+        
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+        
+.info-icon {
+    font-size: 1.5rem;
+    color: var(--orange);
+    margin-right: 1rem;
+    margin-top: 0.3rem;
+}
+        
+.info-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+}
+        
+.info-content p, .info-content a {
+    color: var(--text-dark);
+    text-decoration: none;
+    line-height: 1.6;
+}
+        
+.info-content a:hover {
+    color: var(--orange);
+    text-decoration: underline;
+}
+        
+/* Opening Hours */
+.opening-hours {
+    margin-top: 2rem;
+}
+        
+.opening-hours h3 {
+    font-size: 1.3rem;
+    color: var(--accent-green);
+    margin-bottom: 1rem;
+}
+        
+.hours-table {
+    width: 100%;
+}
+        
+.hours-table tr {
+    border-bottom: 1px solid #eee;
+}
+        
+.hours-table td {
+    padding: 0.5rem 0;
+}
+        
+.hours-table td:last-child {
+    text-align: right;
+    font-weight: bold;
+}
+        
+/* Contact Form */
+.contact-form {
+    background-color: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+        
+.contact-form h2 {
+    font-size: 2rem;
+    color: var(--accent-green);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--orange);
+    padding-bottom: 0.5rem;
+}
+        
+.form-group {
+    margin-bottom: 1.5rem;
+}
+        
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+        
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+        
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+        
+.submit-btn {
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+        
+.submit-btn:hover {
+    background-color: var(--accent-green);
+}
+        
+/* Map Section */
+.map-section {
+    margin-top: 3rem;
+    grid-column: 1 / -1;
+}
+        
+.map-section h2 {
+    font-size: 2rem;
+    color: var(--accent-green);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+        
+.map-container {
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+        
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+            
+    .contact-hero h1 {
+        font-size: 2.2rem;
+    }
+            
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
