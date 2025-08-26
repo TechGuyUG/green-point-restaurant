@@ -14,7 +14,6 @@
         <div class="logo">
             <img src="images/GREEN POINT.png" alt="Green Point Restaurant Logo">
         </div>
-
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="menu.html">Our Menu</a></li>
@@ -368,6 +367,33 @@
         <div class="cart-items" id="cartItems">
             <!-- Cart items will be added here dynamically -->
         </div>
+
+        <!-- Payment Methods -->
+        <div class="payment-methods">
+            <h4>Payment Method</h4>
+
+            <label>
+            <input type="radio" name="paymentMethod" value="MTN" /> MTN Mobile Money
+            </label><br />
+            <label>
+            <input type="radio" name="paymentMethod" value="Airtel" /> Airtel Money
+            </label><br />
+            <label>
+            <input type="radio" name="paymentMethod" value="AfroPay" /> Afro Pay
+            </label><br />
+            <label>
+            <input type="radio" name="paymentMethod" value="Delivery" /> Pay on Delivery
+            </label>
+
+            <div id="phoneInput" style="margin-top: 10px; display: none;">
+            <input
+                type="tel"
+                id="mobileNumber"
+                placeholder="Enter Mobile Number"
+                style="width: 100%; padding: 5px;"
+            />
+            </div>
+        </div>
         <div class="cart-total">
             Total: <span id="cartTotal">UGX 0</span>
         </div>
@@ -432,5 +458,6 @@
     </footer>
 
     <script src="style/menu.js"></script>
+    <script src="style/script.js"></script>
 </body>
 </html>
