@@ -1,7 +1,90 @@
-// Mobile menu toggle
-document.querySelector('.burger').addEventListener('click', () => {
-    document.querySelector('.nav-links').classList.toggle('active');
+// Mobile Navigation
+const menuToggle = document.querySelector(".nav-toggle");
+const navMenu = document.querySelector(".nav-links");
+
+if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+    const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", !isExpanded);
+    navMenu.classList.toggle("showing");
+    document.body.style.overflow = navMenu.classList.contains("showing") ? "hidden" : "";
+  });
+}
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("showing");
+    menuToggle.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  });
 });
+
+function updateTeamCarousel() {
+  if (window.innerWidth <= 768) {
+    // Single column layout for mobile
+    document.querySelectorAll('.team-slide').forEach(slide => {
+      slide.style.gridTemplateColumns = '1fr';
+    });
+  } else {
+    // Two columns for larger screens
+    document.querySelectorAll('.team-slide').forEach(slide => {
+      slide.style.gridTemplateColumns = 'repeat(2, 1fr)';
+    });
+  }
+}
+
+// Initialize and update on resize
+updateTeamCarousel();
+window.addEventListener('resize', updateTeamCarousel);
+
+// Touch support for carousels
+let touchStartX = 0;
+let touchEndX = 0;
+
+// Add touch events to hero slider
+const heroSlider = document.querySelector('.hero-slides');
+if (heroSlider) {
+  heroSlider.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, false);
+
+  heroSlider.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, false);
+}
+
+// Add touch events to team carousel
+const teamCarousel = document.querySelector('.team-slides');
+if (teamCarousel) {
+  teamCarousel.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, false);
+
+  teamCarousel.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleTeamSwipe();
+  }, false);
+}
+
+function handleSwipe() {
+  if (touchEndX < touchStartX - 50) {
+    // Swipe left - next slide
+    showNextHeroSlide();
+  }
+}
+
+function handleTeamSwipe() {
+  if (touchEndX < touchStartX - 50) {
+    // Swipe left - next slide
+    teamSlideIndex = (teamSlideIndex + 1) % totalTeamSlides;
+    showTeamSlide(teamSlideIndex);
+  } else if (touchEndX > touchStartX + 50) {
+    // Swipe right - previous slide
+    teamSlideIndex = (teamSlideIndex - 1 + totalTeamSlides) % totalTeamSlides;
+    showTeamSlide(teamSlideIndex);
+  }
+}
 
 // Hero Image Slider
 let heroSlideIndex = 0;
@@ -15,8 +98,6 @@ function showNextHeroSlide() {
 
 setInterval(showNextHeroSlide, 5000);
 
-// Previous JavaScript remains the same
-
 // Team Carousel with 2 columns
 let teamSlideIndex = 0;
 const teamSlides = document.querySelector('.team-slides');
@@ -25,8 +106,7 @@ const totalTeamSlides = document.querySelectorAll('.team-slide').length;
         
 function showTeamSlide(index) {
     teamSlideIndex = index;
-    teamSlides.style.transform = `translateX(-${index * 100}%)`;
-            
+    teamSlides.style.transform = `translateX(-${index * 100}%)`;          
     teamDots.forEach(dot => dot.classList.remove('active'));
     teamDots[index].classList.add('active');
 }
@@ -108,3 +188,33 @@ submitComment.addEventListener('click', () => {
                 commentForm.style.display = 'none';
             }
         });
+
+const counters = document.querySelectorAll(".stat-num");
+
+const animateCounters = () => {
+    counters.forEach(counter => {
+    const updateCount = () => {
+        const target = +counter.getAttribute("data-target");
+        const count = +counter.innerText;
+        const increment = target / 100;
+
+        if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCount, 30);
+        } else {
+        counter.innerText = target;
+        }
+    };
+    updateCount();
+    });
+};
+
+let triggered = false;
+window.addEventListener("scroll", () => {
+    const statsSection = document.querySelector(".stats");
+    const rect = statsSection.getBoundingClientRect();
+    if (!triggered && rect.top < window.innerHeight) {
+        animateCounters();
+        triggered = true;
+    }
+});

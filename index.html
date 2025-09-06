@@ -2,10 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Green Point Restaurant - Authentic Ugandan Cuisine</title>
+    <meta name="description" content="Green Point Restaurant serves fresh, authentic dishes in Kampala. Dine-in, takeaway, catering, and delivery available." />
+    <meta name="theme-color" content="#14532d" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta property="og:title" content="Green Point Restaurant" />
+    <meta property="og:description" content="Fresh, authentic dishes in Kampala. Reserve a table or order now." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/hero.jpg" />
+    <link rel="icon" href="images/dish-1.jpg" />
+    <link rel="preload" as="image" href="images/hero.jpg" />
     <link rel="stylesheet" href="CSS/sheet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Green Point Restaurant",
+    "servesCuisine": ["African", "Ugandan", "Grill", "Vegetarian"],
+    "address": {"@type":"PostalAddress","addressLocality":"Kampala","addressCountry":"UG"},
+    "url": "https://green-point-restaurant.vercel.app",
+    "telephone": "+256-787-150-374",
+    "priceRange": "UGX 10,000 - UGX 30,000",
+    "openingHours": ["Mo-Su 08:00-22:00"]
+    }
+    </script>
+    
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -13,6 +37,7 @@
         <div class="logo">
             <img src="images/GREEN POINT.png" alt="Green Point Restaurant Logo">
         </div>
+        <button class="nav-toggle" aria-controls="nav" aria-expanded="false" aria-label="Toggle menu">☰</button>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="menu.html">Our Menu</a></li>
@@ -20,7 +45,6 @@
             <li><a href="service.html">Services</a></li>
             <li><a href="contact.html">Contact Us</a></li>
         </ul>
-        <div class="burger">☰</div>
     </nav>
 
     <!-- Hero Section with Sliding Background -->
@@ -32,10 +56,50 @@
         </div>
         <div class="hero-content">
             <h1>Welcome to Green Point Restaurant</h1>
-            <p>Authentic Ugandan Flavors in the Heart of Kampala</p>
+            <p>Authentic Ugandan Flavors in the Heart of Kampala <br> From breakfast to late-night bites, we bring Kampala's favorite flavors—made fresh daily.</p>
             <button><a href="menu.html">View Our Menu</a></button>
         </div>
     </section>
+
+    <!-- FEATURED MENU -->
+  <section class="section featured" aria-labelledby="featured-heading">
+    <div class="container">
+      <article class="card">
+        <img src="images/dish-2.jpg" alt="Matooke served with rich peanut sauce" loading="lazy" />
+        <div class="card-body">
+          <h3>Matooke & Groundnut Sauce</h3>
+          <p>Classic comfort, silky sauce with roasted groundnuts.</p>
+          <a class="btn btn-small" href="menu.html">Order / See price</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/dish-3.jpg" alt="Colorful vegetarian platter" loading="lazy" />
+        <div class="card-body">
+          <h3>Veggie Power Bowl</h3>
+          <p>Seasonal greens, grains, avocado, and our house dressing.</p>
+          <a class="btn btn-small" href="menu.html">Order / See price</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section class="section split" aria-labelledby="story-heading">
+    <div class="container split-inner">
+      <div>
+        <h2 id="story-heading">Our Story</h2>
+        <p>Started as a small family kitchen, Green Point celebrates fresh, local ingredients and the joy of sharing meals together.</p>
+        <a class="btn btn-outline" href="about.html">Meet the team</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><span class="stat-num" data-target="10">0</span><span class="stat-label">Years serving</span></div>
+        <div class="stat"><span class="stat-num" data-target="50">0</span><span class="stat-label">Menu items</span></div>
+        <div class="stat"><span class="stat-num" data-target="4.7">0</span><span class="stat-label">Avg. rating</span></div>
+      </div>
+    </div>
+  </section>
 
     <!-- Our Team Section -->
     <section class="team">
@@ -187,5 +251,6 @@
         </div>
     </footer>
 <script src="style/script.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

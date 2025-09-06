@@ -118,13 +118,44 @@
             
             orderSummary += `\nTotal: UGX ${total.toLocaleString()}`;
             
-            alert(orderSummary);
-            
-            // Here you would typically redirect to a checkout page or send the order
-            // For now, we'll just clear the cart
-            cart = [];
-            updateCart();
-            cartSidebar.classList.remove('active');
+            checkoutBtn.addEventListener('click', () => {
+    if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+    }
+
+    let customerName = document.getElementById('customerName').value.trim();
+    let customerAddress = document.getElementById('customerAddress').value.trim();
+
+    if (!customerName || !customerAddress) {
+        alert("Please enter your Name and Delivery Address before ordering.");
+        return;
+    }
+
+    let orderSummary = `New Order from ${customerName}\n\nDelivery Address: ${customerAddress}\n\nItems:\n`;
+    let total = 0;
+
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        orderSummary += `${item.name} x ${item.quantity} - UGX ${itemTotal.toLocaleString()}\n`;
+        total += itemTotal;
+    });
+
+    orderSummary += `\nTotal: UGX ${total.toLocaleString()}`;
+
+    // Send to WhatsApp
+    let phone = "256787150374"; // your WhatsApp number
+    let whatsappMessage = encodeURIComponent(orderSummary);
+    let url = "https://wa.me/" + phone + "?text=" + whatsappMessage;
+    window.open(url, "_blank");
+
+    // Clear cart
+    cart = [];
+    updateCart();
+    cartSidebar.classList.remove('active');
+    document.getElementById('customerName').value = "";
+    document.getElementById('customerAddress').value = "";
+});
         });
         document.addEventListener('DOMContentLoaded', function() {
             // Create popup elements
