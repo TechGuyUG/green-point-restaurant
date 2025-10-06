@@ -296,6 +296,38 @@ body {
     color: var(--text-dark);
 }
 
+/* Payment Popup */
+.payment-popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+.payment-popup.active {
+  display: flex;
+}
+
+.payment-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  width: 300px;
+  text-align: left;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.payment-box h4 {
+  margin-bottom: 10px;
+  color: var(--accent-green);
+  text-align: center;
+}
+
 .customer-details {
     padding: 1rem;
     border-top: 1px solid #eee;

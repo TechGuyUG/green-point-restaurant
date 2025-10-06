@@ -12,12 +12,12 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="logo">
-            <img src="images/GREEN POINT.png" alt="Green Point Restaurant Logo">
+            <a href="index.html"><img src="images/GREEN POINT.png" alt="Green Point Restaurant Logo"></a>
         </div>
         <button class="nav-toggle" aria-controls="nav" aria-expanded="false" aria-label="Toggle menu">☰</button>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="menu.html">Our Menu</a></li>
+            <li><a href="menu.html" class="active">Our Menu</a></li>
             <li><a href="about-us.html">About Us</a></li>
             <li><a href="service.html">Services</a></li>
             <li><a href="contact.html">Contact Us</a></li>
@@ -370,30 +370,18 @@
 
         <!-- Payment Methods -->
         <div class="payment-methods">
-            <h4>Payment Method</h4>
+            <h4>Select Payment Method</h4>
 
-            <label>
-            <input type="radio" name="paymentMethod" value="MTN" /> MTN Mobile Money
-            </label><br />
-            <label>
-            <input type="radio" name="paymentMethod" value="Airtel" /> Airtel Money
-            </label><br />
-            <label>
-            <input type="radio" name="paymentMethod" value="AfroPay" /> Afro Pay
-            </label><br />
-            <label>
-            <input type="radio" name="paymentMethod" value="Delivery" /> Pay on Delivery
-            </label>
+            <label><input type="radio" name="paymentMethod" value="MTN"> MTN Mobile Money</label><br>
+            <label><input type="radio" name="paymentMethod" value="Airtel"> Airtel Money</label><br>
+            <label><input type="radio" name="paymentMethod" value="AfroPay"> Afro Pay</label><br>
+            <label><input type="radio" name="paymentMethod" value="Delivery"> Pay on Delivery</label>
 
             <div id="phoneInput" style="margin-top: 10px; display: none;">
-            <input
-                type="tel"
-                id="mobileNumber"
-                placeholder="Enter Mobile Number"
-                style="width: 100%; padding: 5px;"
-            />
+            <input type="tel" id="mobileNumber" placeholder="Enter Mobile Number" style="width: 100%; padding: 8px;">
             </div>
         </div>
+
         <div class="customer-details">
             <h4>Customer Info</h4>
             <input type="text" id="customerName" placeholder="Enter Your Name" style="width:100%; padding:5px; margin-bottom:8px;">
@@ -403,8 +391,8 @@
             Total: <span id="cartTotal">UGX 0</span>
         </div>
         <div class="cart-actions">
-            <button class="cart-button clear-cart">Clear</button>
-            <button class="cart-button checkout-btn">Order Now</button>
+            <button id="confirmPayment" class="cart-button clear-cart">Clear</button>
+            <button id="cancelPayment" class="cart-button checkout-btn">Order Now</button>
         </div>
     </div>
 
@@ -414,7 +402,7 @@
         <span class="cart-count" id="cartCount">0</span>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer --> 
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -431,7 +419,7 @@
             <div class="footer-section">
                 <h3>Visit Us</h3>
                 <p>Loum Street, Kampala</p>
-                <p>Zai Plaza</p>
+                <p>Opposite Zai Plaza</p>
                 <p>Open Monday-Saturday, 9am-7pm</p>
                 <div class="footer-section">
                     <div class="social-icons">

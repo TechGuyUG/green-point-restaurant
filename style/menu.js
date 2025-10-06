@@ -243,4 +243,90 @@ overlay.addEventListener('click', () => {
                 popupContainer.style.display = 'none';
                 document.body.style.overflow = 'auto'; // Re-enable scrolling
             }
-        });
+});
+
+const orderBtn = document.getElementById('orderBtn');
+const paymentPopup = document.getElementById('paymentPopup');
+const cancelPayment = document.getElementById('cancelPayment');
+const confirmPayment = document.getElementById('confirmPayment');
+const phoneInput = document.getElementById('phoneInput');
+
+// Show payment popup on order click
+orderBtn.addEventListener('click', () => {
+  if (cart.length === 0) {
+    alert('Your cart is empty!');
+    return;
+  }
+  paymentPopup.classList.add('active');
+});
+
+// Hide popup
+cancelPayment.addEventListener('click', () => {
+  paymentPopup.classList.remove('active');
+});
+
+// Show phone input for mobile money
+document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
+  radio.addEventListener('change', function () {
+    if (this.value === 'MTN' || this.value === 'Airtel' || this.value === 'AfroPay') {
+      phoneInput.style.display = 'block';
+    } else {
+      phoneInput.style.display = 'none';
+    }
+  });
+});
+
+// Confirm payment
+confirmPayment.addEventListener('click', () => {
+  const selectedMethod = document.querySelector('input[name="paymentMethod"]:checked');
+  if (!selectedMethod) {
+    alert('Please select a payment method.');
+    return;
+  }
+
+  const customerName = document.getElementById('customerName').value.trim();
+  const customerAddress = document.getElementById('customerAddress').value.trim();
+  if (!customerName || !customerAddress) {
+    alert("Please fill in your name and address.");
+    return;
+  }
+
+  // Pay on delivery
+  if (selectedMethod.value === 'Delivery') {
+    sendOrderToWhatsApp();
+  }
+
+  // Mobile money options
+  else if (selectedMethod.value === 'MTN') {
+    alert("Please dial *165# to complete your MTN Mobile Money payment.");
+  } else if (selectedMethod.value === 'Airtel') {
+    alert("Please dial *185# to complete your Airtel Money payment.");
+  } else if (selectedMethod.value === 'AfroPay') {
+    alert("Redirecting to AfroPay...");
+    window.open("https://afropay.com", "_blank");
+  }
+
+  paymentPopup.classList.remove('active');
+});
+
+// WhatsApp order sender
+function sendOrderToWhatsApp() {
+  let orderSummary = `New Order from ${document.getElementById('customerName').value}\n\nAddress: ${document.getElementById('customerAddress').value}\n\nItems:\n`;
+  let total = 0;
+
+  cart.forEach(item => {
+    const itemTotal = item.price * item.quantity;
+    orderSummary += `${item.name} x ${item.quantity} - UGX ${itemTotal.toLocaleString()}\n`;
+    total += itemTotal;
+  });
+
+  orderSummary += `\nTotal: UGX ${total.toLocaleString()}`;
+  const phone = "256787150374"; // your WhatsApp number
+  const whatsappMessage = encodeURIComponent(orderSummary);
+  const url = "https://wa.me/" + phone + "?text=" + whatsappMessage;
+  window.open(url, "_blank");
+
+  cart = [];
+  updateCart();
+  cartSidebar.classList.remove('active');
+}

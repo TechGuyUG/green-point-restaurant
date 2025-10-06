@@ -136,78 +136,66 @@ submitComment.addEventListener('click', () => {
     }
 });
 
-        // Get DOM elements
-        const addCommentBtn = document.getElementById('addCommentBtn');
-        const commentForm = document.getElementById('commentForm');
-        const submitCommentBtn = document.getElementById('submitComment');
-        const commentText = document.getElementById('commentText');
-        const commentsContainer = document.getElementById('commentsContainer');
-        
-        // Toggle comment form visibility
-        addCommentBtn.addEventListener('click', () => {
-            if (commentForm.style.display === 'block') {
-                commentForm.style.display = 'none';
-            } else {
-                commentForm.style.display = 'block';
-                commentText.focus(); // Auto-focus the textarea
-            }
-        });
-        
-        // Handle form submission
-        submitCommentBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            const comment = commentText.value.trim();
-            
-            if (comment) {
-                // Create new comment element
-                const newComment = document.createElement('div');
-                newComment.className = 'comment';
-                newComment.innerHTML = `
-                    <p>${comment}</p>
-                    <small>Posted just now</small>
-                `;
-                
-                // Add to comments container
-                commentsContainer.prepend(newComment);
-                
-                // Reset and hide form
-                commentText.value = '';
-                commentForm.style.display = 'none';
-                
-                // Show confirmation (optional)
-                alert('Thank you for your feedback!');
-            } else {
-                alert('Please write your comment before submitting.');
-            }
-        });
-        
-        // Close form when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!commentForm.contains(e.target) && e.target !== addCommentBtn) {
-                commentForm.style.display = 'none';
-            }
-        });
+const slider = document.getElementById('testimonialSlider');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+let index = 0;
 
-const counters = document.querySelectorAll(".stat-num");
+function showSlide(i) {
+    const cards = document.querySelectorAll('.testimonial-card');
+    if (i < 0) index = cards.length - 1;
+    else if (i >= cards.length) index = 0;
+    else index = i;
 
-const animateCounters = () => {
-    counters.forEach(counter => {
-    const updateCount = () => {
-        const target = +counter.getAttribute("data-target");
-        const count = +counter.innerText;
-        const increment = target / 100;
+    const cardWidth = cards[0].offsetWidth;
+    slider.style.transform = `translateX(-${index * cardWidth}px)`;
+}
 
-        if (count < target) {
-            counter.innerText = Math.ceil(count + increment);
-            setTimeout(updateCount, 30);
-        } else {
-        counter.innerText = target;
-        }
-    };
-    updateCount();
-    });
-};
+prevBtn.addEventListener('click', () => showSlide(index - 1));
+nextBtn.addEventListener('click', () => showSlide(index + 1));
+
+// Auto-slide
+setInterval(() => showSlide(index + 1), 6000);
+
+// Toggle Form
+const form = document.getElementById('commentForm');
+document.getElementById('showFormBtn').addEventListener('click', () => {
+    form.style.display = "block";
+});
+document.getElementById('closeFormBtn').addEventListener('click', () => {
+    form.style.display = "none";
+});
+
+// Capture Comment
+document.getElementById('submitComment').addEventListener('click', () => {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const comment = document.getElementById('comment').value.trim();
+    if (!name || !email || !comment) return alert("All fields are required!");
+
+    const hash = md5(email.toLowerCase().trim());
+    const gravatar = `https://www.gravatar.com/avatar/${hash}?d=identicon`;
+
+    const newCard = document.createElement('div');
+    newCard.className = 'testimonial-card';
+    newCard.innerHTML = `
+        <div class="testimonial-header">
+            <img src="${gravatar}" alt="${name}" class="testimonial-image">
+            <div class="client-info">
+                <div class="client-name">${name}</div>
+                <div class="client-email">${email}</div>
+            </div>
+        </div>
+        <p>"${comment}"</p>
+    `;
+    slider.appendChild(newCard);
+
+    // Reset
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('comment').value = '';
+    form.style.display = "none"; // hide form after submit
+});
 
 let triggered = false;
 window.addEventListener("scroll", () => {

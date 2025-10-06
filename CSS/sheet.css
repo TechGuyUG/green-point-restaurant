@@ -30,6 +30,12 @@ body {
     transition: all 0.3s ease;
 }
 
+.nav-links a.active {
+  color: var(--orange);  /* highlight color */
+  font-weight: bold;
+  border-bottom: 2px solid var(--orange); /* underline effect */
+}
+
 .logo img {
     height: 70px;
     width: auto;
@@ -182,7 +188,12 @@ body {
 h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: #2c3e50;
+    color: var(--light-green);
+}
+
+.section-split {
+    background: var(--deep-green);
+    height: 200px;
 }
 
 /*FEATURED MENU CARDS */
@@ -204,7 +215,8 @@ h2 {
 
 .featured img {
     width: 100%;
-    height: 220px;
+    height: 320px;
+    border-radius: 15px;
     object-fit: cover;
 }
 
@@ -338,7 +350,7 @@ h2 {
 }
 
 .member-card {
-    background-color: white;
+    background-color: var(--cream);
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -391,132 +403,6 @@ h2 {
     opacity: 1;
     background-color: var(--orange);
     transform: scale(1.2);
-}
-
-/* Testimonials Section */
-.testimonials {
-    background-color: var(--dark-green);
-    color: var(--cream);
-    padding: 4rem 2rem;
-    text-align: center;
-}
-        
-.testimonials h2 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--light-green);
-}
-        
-.testimonial-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    align-items: center;
-}
- 
-.testimonial-card {
-    background-color: var(--accent-green);
-    padding: 2rem;
-    border-radius: 8px;
-    max-width: 30%;
-    margin-bottom: 1.5rem;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-}
-        
-.testimonial-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-        
-.testimonial-image {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--orange);
-}
-        
-.testimonial-card p {
-    font-style: italic;
-    margin-bottom: 1rem;
-    flex-grow: 1;
-}
-        
-.client-name {
-    font-weight: bold;
-    color: var(--orange);
-}
-
-.testimonial-card p {
-    font-style: italic;
-    margin-bottom: 1rem;
-}
-
-.testimonial-card .client-name {
-    font-weight: bold;
-    color: var(--orange);
-}
-.add-comment {
-    background-color: var(--light-green);
-    color: var(--deep-green);
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    cursor: pointer;
-    margin: 2rem auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s;
-}
-
-.add-comment:hover {
-    transform: scale(1.1);
-}
-
-.comment-form {
-    background-color: var(--accent-green);
-    padding: 2rem;
-    border-radius: 8px;
-    max-width: 500px;
-    margin: 2rem auto;
-    display: none;
-}
-
-.comment-form h3 {
-    margin-top: 0;
-    color: var(--light-green);
-}
-
-.comment-form textarea {
-    width: 100%;
-    padding: 1rem;
-    border-radius: 5px;
-    border: none;
-    margin-bottom: 1rem;
-    min-height: 100px;
-}
-
-.comment-form button {
-    background-color: var(--orange);
-    color: var(--cream);
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.comment-form button:hover {
-    background-color: var(--light-green);
-    color: var(--deep-green);
 }
 
 /* Footer */
