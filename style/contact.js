@@ -1,22 +1,9 @@
-<<<<<<< HEAD
 const contactForm = document.getElementById('contactForm');
 const contactFormMessage = document.getElementById('contactFormMessage');
-
-function setContactStatus(message, type) {
-    if (!contactFormMessage) return;
-    contactFormMessage.textContent = message;
-    contactFormMessage.dataset.state = type;
-}
 
 if (contactForm) {
     contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-
-        if (!contactForm.checkValidity()) {
-            contactForm.reportValidity();
-            setContactStatus('Please complete the highlighted fields before sending.', 'error');
-            return;
-        }
 
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
@@ -27,7 +14,8 @@ if (contactForm) {
         const submitBtn = contactForm.querySelector('button[type="submit"]');
 
         if (!name || !email || !subject || !message) {
-            setContactStatus('Please fill in all required fields before sending.', 'error');
+            contactFormMessage.textContent = 'Please fill in all required fields before sending.';
+            contactFormMessage.style.color = 'red';
             return;
         }
 
@@ -38,26 +26,34 @@ if (contactForm) {
         }
 
         try {
-            const formData = new FormData(contactForm);
-            formData.set('_replyto', email);
-            formData.set('_subject', 'New message from Green Point contact page');
-
             const response = await fetch(contactForm.action, {
                 method: 'POST',
                 headers: {
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
                 },
-                body: formData
+                body: JSON.stringify({
+                    name,
+                    email,
+                    phone,
+                    subject,
+                    message,
+                    _replyto: email,
+                    _subject: 'New message from Green Point contact page'
+                })
             });
 
             if (response.ok) {
-                setContactStatus('Thank you. Your message has been sent successfully.', 'success');
+                contactFormMessage.textContent = 'Thank you! Your message has been sent successfully.';
+                contactFormMessage.style.color = 'green';
                 contactForm.reset();
             } else {
-                setContactStatus('Unable to send your message right now. Please try again later.', 'error');
+                contactFormMessage.textContent = 'Unable to send your message right now. Please try again later.';
+                contactFormMessage.style.color = 'red';
             }
         } catch (error) {
-            setContactStatus('Network error. Please check your connection and try again.', 'error');
+            contactFormMessage.textContent = 'Network error. Please check your connection and try again.';
+            contactFormMessage.style.color = 'red';
         } finally {
             if (submitBtn) {
                 submitBtn.disabled = false;
@@ -66,12 +62,3 @@ if (contactForm) {
         }
     });
 }
-=======
-// Form submission feedback
-const contactForm = document.querySelector('.contact-form form');
-contactForm.addEventListener('submit', function(e) {
-    // In a real implementation, you would handle form submission with AJAX
-    // This is just for demonstration
-    alert('Your message has been sent! We will get back to you soon.');
-});
->>>>>>> d776868aadaa6e266795fab241414ade24b1fa21
