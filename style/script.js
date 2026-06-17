@@ -2,7 +2,7 @@
 const menuToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector(".nav-links");
 
-if (menuToggle) {
+if (menuToggle && navMenu) {
     menuToggle.addEventListener("click", () => {
     const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
     menuToggle.setAttribute("aria-expanded", !isExpanded);
@@ -11,13 +11,15 @@ if (menuToggle) {
   });
 }
 
-document.querySelectorAll(".nav-links a").forEach(link => {
-  link.addEventListener("click", () => {
-    navMenu.classList.remove("showing");
-    menuToggle.setAttribute("aria-expanded", "false");
-    document.body.style.overflow = "";
+if (navMenu && menuToggle) {
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("showing");
+      menuToggle.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    });
   });
-});
+}
 
 function updateTeamCarousel() {
   if (window.innerWidth <= 768) {
@@ -93,6 +95,7 @@ const heroIndicators = document.querySelector('.hero-indicators');
 const heroToggleBtn = document.getElementById('heroToggleBtn');
 let heroInterval = null;
 let heroPlaying = true;
+const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 function createHeroIndicators() {
   if (!heroIndicators) return;
@@ -101,6 +104,7 @@ function createHeroIndicators() {
     dot.type = 'button';
     dot.className = 'hero-dot';
     dot.setAttribute('aria-label', `Show slide ${index + 1}`);
+    dot.setAttribute('aria-pressed', index === 0 ? 'true' : 'false');
     dot.dataset.index = index;
     if (index === 0) dot.classList.add('active');
     dot.addEventListener('click', () => showHeroSlide(index));
@@ -111,7 +115,9 @@ function createHeroIndicators() {
 function updateHeroIndicators() {
   if (!heroIndicators) return;
   heroIndicators.querySelectorAll('.hero-dot').forEach(dot => {
-    dot.classList.toggle('active', parseInt(dot.dataset.index, 10) === heroSlideIndex);
+    const isActive = parseInt(dot.dataset.index, 10) === heroSlideIndex;
+    dot.classList.toggle('active', isActive);
+    dot.setAttribute('aria-pressed', isActive ? 'true' : 'false');
   });
 }
 
@@ -133,12 +139,14 @@ function startHeroAutoRotate() {
   heroInterval = setInterval(showNextHeroSlide, 5000);
   heroPlaying = true;
   if (heroToggleBtn) heroToggleBtn.textContent = 'Pause';
+  if (heroToggleBtn) heroToggleBtn.setAttribute('aria-label', 'Pause slideshow');
 }
 
 function stopHeroAutoRotate() {
   if (heroInterval) clearInterval(heroInterval);
   heroPlaying = false;
   if (heroToggleBtn) heroToggleBtn.textContent = 'Play';
+  if (heroToggleBtn) heroToggleBtn.setAttribute('aria-label', 'Play slideshow');
 }
 
 if (heroToggleBtn) {
@@ -149,7 +157,11 @@ if (heroToggleBtn) {
 
 if (heroSlides.length > 0) {
   createHeroIndicators();
-  startHeroAutoRotate();
+  if (reduceMotionQuery.matches) {
+    stopHeroAutoRotate();
+  } else {
+    startHeroAutoRotate();
+  }
 }
 
 // Team Carousel with 2 columns
@@ -165,7 +177,11 @@ function showTeamSlide(index) {
     teamSlideIndex = ((index % totalTeamSlides) + totalTeamSlides) % totalTeamSlides;
     teamSlides.style.transform = `translateX(-${teamSlideIndex * 100}%)`;          
     teamDots.forEach(dot => dot.classList.remove('active'));
-    if (teamDots[teamSlideIndex]) teamDots[teamSlideIndex].classList.add('active');
+    teamDots.forEach(dot => dot.setAttribute('aria-current', 'false'));
+    if (teamDots[teamSlideIndex]) {
+      teamDots[teamSlideIndex].classList.add('active');
+      teamDots[teamSlideIndex].setAttribute('aria-current', 'true');
+    }
 }
         
 if (teamDots.length > 0) {
@@ -185,6 +201,7 @@ if (teamNextBtn) {
 }
 
 if (teamSlides && totalTeamSlides > 0) {
+  showTeamSlide(0);
     setInterval(() => {
         showTeamSlide(teamSlideIndex + 1);
     }, 5000);

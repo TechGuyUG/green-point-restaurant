@@ -178,6 +178,14 @@ body {
     transition: transform 0.2s ease, background 0.2s ease;
 }
 
+.hero-dot:focus-visible,
+.hero-control:focus-visible,
+.team-nav:focus-visible,
+.carousel-dot:focus-visible {
+    outline: 3px solid var(--light-green);
+    outline-offset: 3px;
+}
+
 .hero-dot.active {
     background: var(--orange);
     transform: scale(1.2);
@@ -411,6 +419,10 @@ h2 {
     background: var(--light-green);
 }
 
+.team-nav:focus-visible {
+    box-shadow: 0 0 0 3px rgba(226, 248, 123, 0.35);
+}
+
 .team-slides {
     display: flex;
     grid-template-columns: 1fr;
@@ -471,6 +483,7 @@ h2 {
     width: 12px;
     height: 12px;
     border-radius: 50%;
+    border: none;
     background-color: var(--accent-green);
     opacity: 0.5;
     cursor: pointer;

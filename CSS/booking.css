@@ -63,6 +63,24 @@ textarea {
   font-weight: bold;
 }
 
+#formMessage[data-state="success"] {
+  color: #1b7f3a;
+}
+
+#formMessage[data-state="error"] {
+  color: #b42318;
+}
+
+#formMessage[data-state="pending"] {
+  color: #30382F;
+}
+
+.service-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .service-btn {
   display: inline-block;
   background: linear-gradient(45deg, var(--orange), var(--accent-green));
