@@ -63,6 +63,7 @@ textarea {
   font-weight: bold;
 }
 
+<<<<<<< HEAD
 #formMessage[data-state="success"] {
   color: #1b7f3a;
 }
@@ -81,6 +82,8 @@ textarea {
   transform: none;
 }
 
+=======
+>>>>>>> d776868aadaa6e266795fab241414ade24b1fa21
 .service-btn {
   display: inline-block;
   background: linear-gradient(45deg, var(--orange), var(--accent-green));
