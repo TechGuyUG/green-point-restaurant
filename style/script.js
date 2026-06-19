@@ -68,19 +68,19 @@ if (teamCarousel) {
 }
 
 function handleSwipe() {
-  if (Math.abs(touchEndX - touchStartX) < 50) return;
-  if (touchEndX < touchStartX) {
+  if (touchEndX < touchStartX - 50) {
+    // Swipe left - next slide
     showNextHeroSlide();
-  } else {
-    showHeroSlide(heroSlideIndex - 1);
   }
 }
 
 function handleTeamSwipe() {
   if (touchEndX < touchStartX - 50) {
+    // Swipe left - next slide
     teamSlideIndex = (teamSlideIndex + 1) % totalTeamSlides;
     showTeamSlide(teamSlideIndex);
   } else if (touchEndX > touchStartX + 50) {
+    // Swipe right - previous slide
     teamSlideIndex = (teamSlideIndex - 1 + totalTeamSlides) % totalTeamSlides;
     showTeamSlide(teamSlideIndex);
   }
@@ -89,189 +89,117 @@ function handleTeamSwipe() {
 // Hero Image Slider
 let heroSlideIndex = 0;
 const heroSlides = document.querySelectorAll('.hero-slide');
-const heroIndicators = document.querySelector('.hero-indicators');
-const heroToggleBtn = document.getElementById('heroToggleBtn');
-let heroInterval = null;
-let heroPlaying = true;
-
-function createHeroIndicators() {
-  if (!heroIndicators) return;
-  heroSlides.forEach((_, index) => {
-    const dot = document.createElement('button');
-    dot.type = 'button';
-    dot.className = 'hero-dot';
-    dot.setAttribute('aria-label', `Show slide ${index + 1}`);
-    dot.dataset.index = index;
-    if (index === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => showHeroSlide(index));
-    heroIndicators.appendChild(dot);
-  });
-}
-
-function updateHeroIndicators() {
-  if (!heroIndicators) return;
-  heroIndicators.querySelectorAll('.hero-dot').forEach(dot => {
-    dot.classList.toggle('active', parseInt(dot.dataset.index, 10) === heroSlideIndex);
-  });
-}
-
-function showHeroSlide(index) {
-    if (heroSlides.length === 0) return;
-    heroSlides[heroSlideIndex].classList.remove('active');
-    heroSlideIndex = ((index % heroSlides.length) + heroSlides.length) % heroSlides.length;
-    heroSlides[heroSlideIndex].classList.add('active');
-    updateHeroIndicators();
-}
 
 function showNextHeroSlide() {
-    if (heroSlides.length === 0) return;
-    showHeroSlide(heroSlideIndex + 1);
+    heroSlides[heroSlideIndex].classList.remove('active');
+    heroSlideIndex = (heroSlideIndex + 1) % heroSlides.length;
+    heroSlides[heroSlideIndex].classList.add('active');
 }
 
-function startHeroAutoRotate() {
-  if (heroInterval) clearInterval(heroInterval);
-  heroInterval = setInterval(showNextHeroSlide, 5000);
-  heroPlaying = true;
-  if (heroToggleBtn) heroToggleBtn.textContent = 'Pause';
-}
-
-function stopHeroAutoRotate() {
-  if (heroInterval) clearInterval(heroInterval);
-  heroPlaying = false;
-  if (heroToggleBtn) heroToggleBtn.textContent = 'Play';
-}
-
-if (heroToggleBtn) {
-  heroToggleBtn.addEventListener('click', () => {
-    heroPlaying ? stopHeroAutoRotate() : startHeroAutoRotate();
-  });
-}
-
-if (heroSlides.length > 0) {
-  createHeroIndicators();
-  startHeroAutoRotate();
-}
+setInterval(showNextHeroSlide, 5000);
 
 // Team Carousel with 2 columns
 let teamSlideIndex = 0;
 const teamSlides = document.querySelector('.team-slides');
 const teamDots = document.querySelectorAll('.team .carousel-dot');
 const totalTeamSlides = document.querySelectorAll('.team-slide').length;
-const teamPrevBtn = document.querySelector('.team-nav.team-prev');
-const teamNextBtn = document.querySelector('.team-nav.team-next');
         
 function showTeamSlide(index) {
-    if (!teamSlides || totalTeamSlides === 0) return;
-    teamSlideIndex = ((index % totalTeamSlides) + totalTeamSlides) % totalTeamSlides;
-    teamSlides.style.transform = `translateX(-${teamSlideIndex * 100}%)`;          
+    teamSlideIndex = index;
+    teamSlides.style.transform = `translateX(-${index * 100}%)`;          
     teamDots.forEach(dot => dot.classList.remove('active'));
-    if (teamDots[teamSlideIndex]) teamDots[teamSlideIndex].classList.add('active');
+    teamDots[index].classList.add('active');
 }
         
-if (teamDots.length > 0) {
-    teamDots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            showTeamSlide(parseInt(dot.dataset.index));
-        });
-    });
-}
-
-if (teamPrevBtn) {
-  teamPrevBtn.addEventListener('click', () => showTeamSlide(teamSlideIndex - 1));
-}
-
-if (teamNextBtn) {
-  teamNextBtn.addEventListener('click', () => showTeamSlide(teamSlideIndex + 1));
-}
-
-if (teamSlides && totalTeamSlides > 0) {
+teamDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+    showTeamSlide(parseInt(dot.dataset.index));
+});
+});
+        
+// Auto-rotate team slides
     setInterval(() => {
-        showTeamSlide(teamSlideIndex + 1);
-    }, 5000);
-}
+    teamSlideIndex = (teamSlideIndex + 1) % totalTeamSlides;
+    showTeamSlide(teamSlideIndex);
+}, 5000);
+
+submitComment.addEventListener('click', () => {
+    const commentText = document.querySelector('.comment-form textarea').value;
+    if (commentText.trim() !== '') {
+        // In a real implementation, you would send this to a server
+        // For now, we'll just simulate adding a new comment
+        alert('Thank you for your feedback! Your comment has been submitted.');
+        document.querySelector('.comment-form textarea').value = '';
+        commentForm.style.display = 'none';
+    } else {
+        alert('Please write your comment before submitting.');
+    }
+});
 
 const slider = document.getElementById('testimonialSlider');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
-let testimonialIndex = 0;
+let index = 0;
 
 function showSlide(i) {
-    if (!slider) return;
-    const cards = slider.querySelectorAll('.testimonial-card');
-    if (cards.length === 0) return;
-
-    if (i < 0) testimonialIndex = cards.length - 1;
-    else if (i >= cards.length) testimonialIndex = 0;
-    else testimonialIndex = i;
+    const cards = document.querySelectorAll('.testimonial-card');
+    if (i < 0) index = cards.length - 1;
+    else if (i >= cards.length) index = 0;
+    else index = i;
 
     const cardWidth = cards[0].offsetWidth;
-    slider.style.transform = `translateX(-${testimonialIndex * cardWidth}px)`;
+    slider.style.transform = `translateX(-${index * cardWidth}px)`;
 }
 
-if (prevBtn) prevBtn.addEventListener('click', () => showSlide(testimonialIndex - 1));
-if (nextBtn) nextBtn.addEventListener('click', () => showSlide(testimonialIndex + 1));
-if (slider) setInterval(() => showSlide(testimonialIndex + 1), 6000);
+prevBtn.addEventListener('click', () => showSlide(index - 1));
+nextBtn.addEventListener('click', () => showSlide(index + 1));
 
-const commentForm = document.getElementById('commentForm');
-const showFormBtn = document.getElementById('showFormBtn');
-const closeFormBtn = document.getElementById('closeFormBtn');
-const submitCommentBtn = document.getElementById('submitComment');
+// Auto-slide
+setInterval(() => showSlide(index + 1), 6000);
 
-if (showFormBtn && commentForm) {
-    showFormBtn.addEventListener('click', () => {
-        commentForm.style.display = 'block';
-    });
-}
+// Toggle Form
+const form = document.getElementById('commentForm');
+document.getElementById('showFormBtn').addEventListener('click', () => {
+    form.style.display = "block";
+});
+document.getElementById('closeFormBtn').addEventListener('click', () => {
+    form.style.display = "none";
+});
 
-if (closeFormBtn && commentForm) {
-    closeFormBtn.addEventListener('click', () => {
-        commentForm.style.display = 'none';
-    });
-}
+// Capture Comment
+document.getElementById('submitComment').addEventListener('click', () => {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const comment = document.getElementById('comment').value.trim();
+    if (!name || !email || !comment) return alert("All fields are required!");
 
-if (submitCommentBtn) {
-    submitCommentBtn.addEventListener('click', () => {
-        const nameInput = document.getElementById('name');
-        const emailInput = document.getElementById('email');
-        const commentInput = document.getElementById('comment');
-        if (!nameInput || !emailInput || !commentInput) return;
+    const hash = md5(email.toLowerCase().trim());
+    const gravatar = `https://www.gravatar.com/avatar/${hash}?d=identicon`;
 
-        const name = nameInput.value.trim();
-        const email = emailInput.value.trim();
-        const comment = commentInput.value.trim();
+    const newCard = document.createElement('div');
+    newCard.className = 'testimonial-card';
+    newCard.innerHTML = `
+        <div class="testimonial-header">
+            <img src="${gravatar}" alt="${name}" class="testimonial-image">
+            <div class="client-info">
+                <div class="client-name">${name}</div>
+                <div class="client-email">${email}</div>
+            </div>
+        </div>
+        <p>"${comment}"</p>
+    `;
+    slider.appendChild(newCard);
 
-        if (!name || !email || !comment) return alert('All fields are required!');
-
-        const hash = md5(email.toLowerCase().trim());
-        const gravatar = `https://www.gravatar.com/avatar/${hash}?d=identicon`;
-
-        if (slider) {
-            const newCard = document.createElement('div');
-            newCard.className = 'testimonial-card';
-            newCard.innerHTML = `
-                <div class="testimonial-header">
-                    <img src="${gravatar}" alt="${name}" class="testimonial-image">
-                    <div class="client-info">
-                        <div class="client-name">${name}</div>
-                        <div class="client-email">${email}</div>
-                    </div>
-                </div>
-                <p>"${comment}"</p>
-            `;
-            slider.appendChild(newCard);
-        }
-
-        nameInput.value = '';
-        emailInput.value = '';
-        commentInput.value = '';
-        if (commentForm) commentForm.style.display = 'none';
-    });
-}
+    // Reset
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('comment').value = '';
+    form.style.display = "none"; // hide form after submit
+});
 
 let triggered = false;
-window.addEventListener('scroll', () => {
-    const statsSection = document.querySelector('.stats');
-    if (!statsSection) return;
+window.addEventListener("scroll", () => {
+    const statsSection = document.querySelector(".stats");
     const rect = statsSection.getBoundingClientRect();
     if (!triggered && rect.top < window.innerHeight) {
         animateCounters();

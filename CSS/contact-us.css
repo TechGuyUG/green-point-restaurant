@@ -181,13 +181,7 @@ body {
 .submit-btn:hover {
     background-color: var(--accent-green);
 }
-
-.form-status {
-    margin-top: 1rem;
-    font-size: 0.95rem;
-    line-height: 1.4;
-}
-
+        
 /* Map Section */
 .map-section {
     margin-top: 3rem;
