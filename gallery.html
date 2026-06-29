@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Green Point Restaurant</title>
+    <meta name="description" content="Browse our food gallery — authentic Ugandan dishes, restaurant moments, and team highlights from Green Point Restaurant, Kampala.">
+    <link rel="icon" href="images/dish-1.jpg">
+    <link rel="stylesheet" href="CSS/sheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="images/GREEN POINT.png" alt="Green Point Restaurant Logo" width="70" height="70"></a>
+        </div>
+        <button class="nav-toggle" aria-controls="nav" aria-expanded="false" aria-label="Toggle menu">☰</button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Our Menu</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="order.html">Order Online</a></li>
+            <li><a href="booking.html" class="nav-book-btn">📅 Book a Table</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <div class="gallery-hero">
+        <h1>Our Gallery</h1>
+        <p>A taste of what awaits you at Green Point — Kampala's home of authentic Ugandan flavours</p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="gallery-filters">
+        <button class="gallery-filter-btn active" data-filter="all">All</button>
+        <button class="gallery-filter-btn" data-filter="food">Food &amp; Dishes</button>
+        <button class="gallery-filter-btn" data-filter="drinks">Drinks</button>
+        <button class="gallery-filter-btn" data-filter="events">Events &amp; Ambiance</button>
+        <button class="gallery-filter-btn" data-filter="team">Our Team</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid" id="galleryGrid">
+        <!-- Food -->
+        <div class="gallery-item" data-cat="food" data-caption="Matooke &amp; Groundnut Sauce">
+            <img src="images/matoke-hnut.jpeg" alt="Matooke and groundnut sauce" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Matooke &amp; Groundnut Sauce</span></div>
+        </div>
+        <div class="gallery-item" data-cat="food" data-caption="Luwombo — Steamed Chicken">
+            <img src="images/chicken luwombo.jpg" alt="Chicken Luwombo" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Chicken Luwombo</span></div>
+        </div>
+        <div class="gallery-item" data-cat="food" data-caption="Fresh Grilled Fish">
+            <img src="images/Fresh Fish.jpg" alt="Fresh Grilled Fish" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Fresh Grilled Fish</span></div>
+        </div>
+        <div class="gallery-item" data-cat="food" data-caption="Beef Luwombo">
+            <img src="images/luwombo beaf.jpg" alt="Beef Luwombo" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Beef Luwombo</span></div>
+        </div>
+        <div class="gallery-item" data-cat="food" data-caption="Rolex — Uganda's Street Classic">
+            <img src="images/rolex.jpg" alt="Ugandan Rolex" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Rolex</span></div>
+        </div>
+        <div class="gallery-item" data-cat="food" data-caption="Chapati — Freshly Made">
+            <img src="images/chapati.jpg" alt="Freshly made chapati" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Fresh Chapati</span></div>
+        </div>
+        <div class="gallery-item" data-cat="food" data-caption="Goat Meat — Slow Cooked">
+            <img src="images/Goat meat.jpg" alt="Goat meat" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Goat Meat</span></div>
+        </div>
+        <div class="gallery-item" data-cat="food" data-caption="Samsa — Crispy &amp; Golden">
+            <img src="images/samsa.jpg" alt="Crispy samsa" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Samsa</span></div>
+        </div>
+        <div class="gallery-item" data-cat="food" data-caption="Chips &amp; Chicken">
+            <img src="images/chips & chicken.jpg" alt="Chips and chicken" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Chips &amp; Chicken</span></div>
+        </div>
+        <div class="gallery-item" data-cat="food" data-caption="Fresh Beans — Local &amp; Nutritious">
+            <img src="images/fresh beans.jpg" alt="Fresh beans" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Fresh Beans</span></div>
+        </div>
+        <div class="gallery-item" data-cat="food" data-caption="Fish Luwombo">
+            <img src="images/Fish luwombo.jpg" alt="Fish Luwombo" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Fish Luwombo</span></div>
+        </div>
+        <div class="gallery-item" data-cat="food" data-caption="Local Ugandan Breakfast">
+            <img src="images/breakfast.jpg" alt="Local Ugandan breakfast" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Breakfast Spread</span></div>
+        </div>
+
+        <!-- Drinks -->
+        <div class="gallery-item" data-cat="drinks" data-caption="Fresh Passion Juice">
+            <img src="images/passion juice.jpg" alt="Fresh passion juice" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Passion Juice</span></div>
+        </div>
+        <div class="gallery-item" data-cat="drinks" data-caption="Banana Juice — House Special">
+            <img src="images/banana juice.jpg" alt="Fresh banana juice" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Banana Juice</span></div>
+        </div>
+        <div class="gallery-item" data-cat="drinks" data-caption="African Tea with Ginger">
+            <img src="images/african tea.jpg" alt="African tea with ginger" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>African Tea</span></div>
+        </div>
+        <div class="gallery-item" data-cat="drinks" data-caption="Milk Tea">
+            <img src="images/milk tea.jpg" alt="Milk tea" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Milk Tea</span></div>
+        </div>
+        <div class="gallery-item" data-cat="drinks" data-caption="Soft Drinks">
+            <img src="images/sodas.jpg" alt="Soft drinks" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Soft Drinks</span></div>
+        </div>
+
+        <!-- Events & Ambiance -->
+        <div class="gallery-item" data-cat="events" data-caption="Restaurant Ambiance">
+            <img src="images/home1.jpg" alt="Restaurant interior" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Our Space</span></div>
+        </div>
+        <div class="gallery-item" data-cat="events" data-caption="Cultural Gathering">
+            <img src="images/cultural.jpg" alt="Cultural gathering" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Cultural Event</span></div>
+        </div>
+        <div class="gallery-item" data-cat="events" data-caption="Family Dining">
+            <img src="images/adult.jpg" alt="Family dining" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Family Dining</span></div>
+        </div>
+        <div class="gallery-item" data-cat="events" data-caption="Special Functions">
+            <img src="images/grand.jpg" alt="Special function" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Grand Functions</span></div>
+        </div>
+        <div class="gallery-item" data-cat="events" data-caption="Fun Events">
+            <img src="images/fun1.webp" alt="Fun event" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Events</span></div>
+        </div>
+
+        <!-- Team -->
+        <div class="gallery-item" data-cat="team" data-caption="Eunice Baluka — Head Chef">
+            <img src="images/team1.JPG" alt="Eunice Baluka Head Chef" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Eunice Baluka — Head Chef</span></div>
+        </div>
+        <div class="gallery-item" data-cat="team" data-caption="Shalom Melionia — Restaurant Manager">
+            <img src="images/team2.JPG" alt="Shalom Melionia" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Shalom — Manager</span></div>
+        </div>
+        <div class="gallery-item" data-cat="team" data-caption="Juliet — Sous Chef">
+            <img src="images/team 3.jpg" alt="Juliet Sous Chef" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Juliet — Sous Chef</span></div>
+        </div>
+        <div class="gallery-item" data-cat="team" data-caption="Wanzala Eric — Pastry Chef">
+            <img src="images/team4.JPG" alt="Wanzala Eric" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Wanzala Eric — Pastry</span></div>
+        </div>
+        <div class="gallery-item" data-cat="team" data-caption="Chief John — Beverage Manager">
+            <img src="images/team5.jpg" alt="Chief John" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Chief John — Beverages</span></div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">&#8592;</button>
+        <img src="" alt="" class="lightbox-img" id="lightboxImg">
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">&#8594;</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Important Info</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Our Menu</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Visit Us</h3>
+                <p>Luwum Street, Kampala</p>
+                <p>Opposite Zai Plaza</p>
+                <p>Open Mon–Sat: 8:00 AM – 7:00 PM</p>
+                <div class="social-icons">
+                    <a href="https://www.tiktok.com/@tech.guy.ug" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/256787150374" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:techguycolynes@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/256787150374" target="_blank">+256 787 150374</a></p>
+                <p><i class="fas fa-phone"></i> Call: <a href="tel:+256787150374">+256 787 150374</a></p>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:greenpointrestaurant@gmail.com">greenpointrestaurant@gmail.com</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Feedback</h3>
+                <p>We value your opinion</p>
+                <textarea placeholder="Your feedback..." rows="3"></textarea>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Green Point Restaurant. All Rights Reserved.</p>
+            <p>We deliver around Kampala City</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/256787150374?text=Hi%20Green%20Point%2C%20I%20have%20an%20enquiry"
+       class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="wa-tooltip">Chat with us on WhatsApp</span>
+    </a>
+
+    <script>
+    // Gallery filter
+    const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+    const items = document.querySelectorAll('.gallery-item');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+            items.forEach(item => {
+                item.style.display = (filter === 'all' || item.dataset.cat === filter) ? '' : 'none';
+            });
+        });
+    });
+
+    // Lightbox
+    let currentIndex = 0;
+    let visibleItems = [];
+
+    function openLightbox(index) {
+        visibleItems = [...items].filter(i => i.style.display !== 'none');
+        currentIndex = index;
+        updateLightbox();
+        document.getElementById('lightbox').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+    function updateLightbox() {
+        const item = visibleItems[currentIndex];
+        document.getElementById('lightboxImg').src = item.querySelector('img').src;
+        document.getElementById('lightboxImg').alt = item.querySelector('img').alt;
+        document.getElementById('lightboxCaption').textContent = item.dataset.caption;
+    }
+
+    items.forEach((item, i) => {
+        item.addEventListener('click', () => {
+            visibleItems = [...items].filter(it => it.style.display !== 'none');
+            const visIdx = visibleItems.indexOf(item);
+            openLightbox(visIdx >= 0 ? visIdx : i);
+        });
+    });
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightboxPrev').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
+        updateLightbox();
+    });
+    document.getElementById('lightboxNext').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % visibleItems.length;
+        updateLightbox();
+    });
+    document.getElementById('lightbox').addEventListener('click', e => {
+        if (e.target === document.getElementById('lightbox')) closeLightbox();
+    });
+    document.addEventListener('keydown', e => {
+        if (!document.getElementById('lightbox').classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') document.getElementById('lightboxPrev').click();
+        if (e.key === 'ArrowRight') document.getElementById('lightboxNext').click();
+    });
+    </script>
+    <script src="style/script.js"></script>
+</body>
+</html>

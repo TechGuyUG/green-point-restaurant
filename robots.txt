@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /style/
+Sitemap: https://green-point-restaurant.vercel.app/sitemap.xml

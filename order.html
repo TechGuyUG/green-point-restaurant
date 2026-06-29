@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Online - Green Point Restaurant</title>
+    <meta name="description" content="Order food online from Green Point Restaurant, Kampala. Choose your dishes, add delivery details, and we'll bring authentic Ugandan food to you.">
+    <link rel="icon" href="images/dish-1.jpg">
+    <link rel="stylesheet" href="CSS/sheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="images/GREEN POINT.png" alt="Green Point Restaurant Logo" width="70" height="70"></a>
+        </div>
+        <button class="nav-toggle" aria-controls="nav" aria-expanded="false" aria-label="Toggle menu">☰</button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Our Menu</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="order.html" class="active">Order Online</a></li>
+            <li><a href="booking.html" class="nav-book-btn">📅 Book a Table</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <div class="order-hero">
+        <h1>🛵 Order Online</h1>
+        <p>Fresh Ugandan food delivered to your door · Kampala area · Same-day delivery</p>
+    </div>
+
+    <div class="order-container">
+        <p style="background:#e6f4ea;border:1px solid #a8d5b5;border-radius:8px;padding:12px 16px;color:#1D503A;font-size:0.93rem;">
+            <i class="fas fa-info-circle"></i> <strong>How it works:</strong> Add items to your cart, fill in your delivery details, and submit. We'll call you within 15 minutes to confirm your order and arrange delivery. Mobile Money (MTN/Airtel) accepted.
+        </p>
+
+        <!-- BREAKFAST -->
+        <h3 class="order-section-title"><i class="fas fa-coffee"></i> Breakfast</h3>
+        <div class="order-items-grid">
+            <div class="order-item-card" data-name="African Tea with Ginger" data-price="2000">
+                <img src="images/african tea.jpg" alt="African Tea" width="200" height="130" loading="lazy">
+                <div class="order-item-info">
+                    <h4>African Tea</h4>
+                    <div class="price">UGX 2,000</div>
+                    <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+                </div>
+            </div>
+            <div class="order-item-card" data-name="Fresh Chapati (2 pcs)" data-price="2500">
+                <img src="images/chapati.jpg" alt="Fresh Chapati" width="200" height="130" loading="lazy">
+                <div class="order-item-info">
+                    <h4>Chapati (2 pcs)</h4>
+                    <div class="price">UGX 2,500</div>
+                    <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+                </div>
+            </div>
+            <div class="order-item-card" data-name="Samsa (3 pcs)" data-price="3000">
+                <img src="images/samsa.jpg" alt="Samsa" width="200" height="130" loading="lazy">
+                <div class="order-item-info">
+                    <h4>Samsa (3 pcs)</h4>
+                    <div class="price">UGX 3,000</div>
+                    <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+                </div>
+            </div>
+            <div class="order-item-card" data-name="Full Breakfast Plate" data-price="8000">
+                <img src="images/breakfast.jpg" alt="Breakfast" width="200" height="130" loading="lazy">
+                <div class="order-item-info">
+                    <h4>Full Breakfast</h4>
+                    <div class="price">UGX 8,000</div>
+                    <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAINS -->
+        <h3 class="order-section-title"><i class="fas fa-utensils"></i> Main Dishes</h3>
+        <div class="order-items-grid">
+            <div class="order-item-card" data-name="Matooke & Groundnut Sauce" data-price="10000">
+                <img src="images/matoke-hnut.jpeg" alt="Matooke" width="200" height="130" loading="lazy">
+                <div class="order-item-info">
+                    <h4>Matooke &amp; G/nut Sauce</h4>
+                    <div class="price">UGX 10,000</div>
+                    <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+                </div>
+            </div>
+            <div class="order-item-card" data-name="Chicken Luwombo" data-price="18000">
+                <img src="images/chicken luwombo.jpg" alt="Chicken Luwombo" width="200" height="130" loading="lazy">
+                <div class="order-item-info">
+                    <h4>Chicken Luwombo</h4>
+                    <div class="price">UGX 18,000</div>
+                    <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+                </div>
+            </div>
+            <div class="order-item-card" data-name="Beef Luwombo" data-price="20000">
+                <img src="images/luwombo beaf.jpg" alt="Beef Luwombo" width="200" height="130" loading="lazy">
+                <div class="order-item-info">
+                    <h4>Beef Luwombo</h4>
+                    <div class="price">UGX 20,000</div>
+                    <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+                </div>
+            </div>
+            <div class="order-item-card" data-name="Fresh Grilled Fish" data-price="22000">
+                <img src="images/Fresh Fish.jpg" alt="Grilled Fish" width="200" height="130" loading="lazy">
+                <div class="order-item-info">
+                    <h4>Grilled Fish</h4>
+                    <div class="price">UGX 22,000</div>
+                    <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+                </div>
+            </div>
+            <div class="order-item-card" data-name="Goat Meat Stew" data-price="20000">
+                <img src="images/Goat meat.jpg" alt="Goat Meat" width="200" height="130" loading="lazy">
+                <div class="order-item-info">
+                    <h4>Goat Meat Stew</h4>
+                    <div class="price">UGX 20,000</div>
+                    <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+                </div>
+            </div>
+            <div class="order-item-card" data-name="Chips & Chicken" data-price="15000">
+                <img src="images/chips & chicken.jpg" alt="Chips and Chicken" width="200" height="130" loading="lazy">
+                <div class="order-item-info">
+                    <h4>Chips &amp; Chicken</h4>
+                    <div class="price">UGX 15,000</div>
+                    <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+                </div>
+            </div>
+            <div class="order-item-card" data-name="Rolex (Ugandan Style)" data-price="5000">
+                <img src="images/rolex.jpg" alt="Rolex" width="200" height="130" loading="lazy">
+                <div class="order-item-info">
+                    <h4>Rolex</h4>
+                    <div class="price">UGX 5,000</div>
+                    <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+                </div>
+            </div>
+            <div class="order-item-card" data-name="Veggie Power Bowl" data-price="12000">
+                <img src="images/fresh beans.jpg" alt="Veggie Bowl" width="200" height="130" loading="lazy">
+                <div class="order-item-info">
+                    <h4>Veggie Power Bowl</h4>
+                    <div class="price">UGX 12,000</div>
+                    <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- DRINKS -->
+        <h3 class="order-section-title"><i class="fas fa-glass-cheers"></i> Drinks</h3>
+        <div class="order-items-grid">
+            <div class="order-item-card" data-name="Fresh Passion Juice" data-price="3500">
+                <img src="images/passion juice.jpg" alt="Passion Juice" width="200" height="130" loading="lazy">
+                <div class="order-item-info">
+                    <h4>Passion Juice</h4>
+                    <div class="price">UGX 3,500</div>
+                    <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+                </div>
+            </div>
+            <div class="order-item-card" data-name="Fresh Banana Juice" data-price="4000">
+                <img src="images/banana juice.jpg" alt="Banana Juice" width="200" height="130" loading="lazy">
+                <div class="order-item-info">
+                    <h4>Banana Juice</h4>
+                    <div class="price">UGX 4,000</div>
+                    <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+                </div>
+            </div>
+            <div class="order-item-card" data-name="Soft Drink (Soda)" data-price="2500">
+                <img src="images/sodas.jpg" alt="Soft Drink" width="200" height="130" loading="lazy">
+                <div class="order-item-info">
+                    <h4>Soft Drink</h4>
+                    <div class="price">UGX 2,500</div>
+                    <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+                </div>
+            </div>
+            <div class="order-item-card" data-name="Rwenzori Water (500ml)" data-price="1500">
+                <img src="images/rwenzoriwater.jpg" alt="Water" width="200" height="130" loading="lazy">
+                <div class="order-item-info">
+                    <h4>Rwenzori Water</h4>
+                    <div class="price">UGX 1,500</div>
+                    <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cart & Order Form -->
+        <div class="order-cart" id="orderCart">
+            <h3><i class="fas fa-shopping-basket"></i> Your Order</h3>
+            <div class="cart-items" id="cartItems">
+                <p class="cart-empty-msg">No items added yet. Browse the menu above.</p>
+            </div>
+            <div class="cart-total" id="cartTotal" style="display:none;">
+                <span>Total</span><span id="totalAmount">UGX 0</span>
+            </div>
+
+            <div class="order-form" id="orderForm" style="display:none;">
+                <h4 style="color:var(--accent-green);margin-bottom:1rem;">Delivery Details</h4>
+                <div class="form-group">
+                    <label for="ord-name">Full Name *</label>
+                    <input type="text" id="ord-name" placeholder="Your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="ord-phone">Phone Number *</label>
+                    <input type="tel" id="ord-phone" placeholder="+256 700 000 000" required>
+                </div>
+                <div class="form-group">
+                    <label for="ord-address">Delivery Address *</label>
+                    <input type="text" id="ord-address" placeholder="Street, area, landmark near you" required>
+                </div>
+                <div class="form-group">
+                    <label for="ord-payment">Payment Method *</label>
+                    <select id="ord-payment" required>
+                        <option value="">-- Select --</option>
+                        <option>MTN Mobile Money</option>
+                        <option>Airtel Money</option>
+                        <option>Cash on Delivery</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ord-notes">Special Instructions</label>
+                    <textarea id="ord-notes" rows="2" placeholder="Allergies, extra spice, no onions, etc."></textarea>
+                </div>
+                <button class="order-submit-btn" onclick="submitOrder()">
+                    <i class="fas fa-paper-plane"></i> Place Order via WhatsApp
+                </button>
+                <div id="orderMessage"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Important Info</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Our Menu</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Visit Us</h3>
+                <p>Luwum Street, Kampala</p>
+                <p>Opposite Zai Plaza</p>
+                <p>Open Mon–Sat: 8:00 AM – 7:00 PM</p>
+                <div class="social-icons">
+                    <a href="https://www.tiktok.com/@tech.guy.ug" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/256787150374" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:techguycolynes@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/256787150374" target="_blank">+256 787 150374</a></p>
+                <p><i class="fas fa-phone"></i> Call: <a href="tel:+256787150374">+256 787 150374</a></p>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:greenpointrestaurant@gmail.com">greenpointrestaurant@gmail.com</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Feedback</h3>
+                <p>We value your opinion</p>
+                <textarea placeholder="Your feedback..." rows="3"></textarea>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Green Point Restaurant. All Rights Reserved.</p>
+            <p>We deliver around Kampala City</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/256787150374?text=Hi%20Green%20Point%2C%20I%20have%20an%20enquiry"
+       class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="wa-tooltip">Chat with us on WhatsApp</span>
+    </a>
+
+    <script>
+    const cart = [];
+    const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxqXPG0dLvwSCWYFJzoJnGPyv4dNIdXlaSc8SpZMrEswL08p2s4u2m-HUG71VSVK04J/exec';
+
+    function addToCart(btn) {
+        const card = btn.closest('.order-item-card');
+        const name = card.dataset.name;
+        const price = parseInt(card.dataset.price);
+        const existing = cart.find(i => i.name === name);
+        if (existing) { existing.qty++; }
+        else { cart.push({ name, price, qty: 1 }); }
+        btn.textContent = '✓ Added';
+        btn.classList.add('added');
+        setTimeout(() => { btn.textContent = '+ Add'; btn.classList.remove('added'); }, 1200);
+        renderCart();
+    }
+
+    function removeFromCart(name) {
+        const idx = cart.findIndex(i => i.name === name);
+        if (idx > -1) cart.splice(idx, 1);
+        renderCart();
+    }
+
+    function renderCart() {
+        const el = document.getElementById('cartItems');
+        const totalEl = document.getElementById('cartTotal');
+        const formEl = document.getElementById('orderForm');
+        if (cart.length === 0) {
+            el.innerHTML = '<p class="cart-empty-msg">No items added yet. Browse the menu above.</p>';
+            totalEl.style.display = 'none';
+            formEl.style.display = 'none';
+            return;
+        }
+        let total = 0;
+        el.innerHTML = cart.map(i => {
+            total += i.price * i.qty;
+            return `<div class="cart-line">
+                <span>${i.name} × ${i.qty}</span>
+                <span>UGX ${(i.price * i.qty).toLocaleString()}
+                <button class="remove-btn" onclick="removeFromCart('${i.name.replace(/'/g,"\\'")}')">✕</button></span>
+            </div>`;
+        }).join('');
+        document.getElementById('totalAmount').textContent = 'UGX ' + total.toLocaleString();
+        totalEl.style.display = 'flex';
+        formEl.style.display = 'block';
+        document.getElementById('orderCart').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function submitOrder() {
+        const name = document.getElementById('ord-name').value.trim();
+        const phone = document.getElementById('ord-phone').value.trim();
+        const address = document.getElementById('ord-address').value.trim();
+        const payment = document.getElementById('ord-payment').value;
+        const notes = document.getElementById('ord-notes').value.trim() || 'None';
+        const msgEl = document.getElementById('orderMessage');
+
+        if (!name || !phone || !address || !payment) {
+            msgEl.style.cssText = 'display:block;background:#fde8e8;color:#c0392b;border:1px solid #f5c6cb;padding:12px;border-radius:6px;font-weight:700;';
+            msgEl.textContent = '⚠️ Please fill in all delivery details.';
+            return;
+        }
+        if (cart.length === 0) {
+            msgEl.style.cssText = 'display:block;background:#fde8e8;color:#c0392b;border:1px solid #f5c6cb;padding:12px;border-radius:6px;font-weight:700;';
+            msgEl.textContent = '⚠️ Your cart is empty.';
+            return;
+        }
+
+        const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+        const itemList = cart.map(i => `  • ${i.name} ×${i.qty} = UGX ${(i.price*i.qty).toLocaleString()}`).join('\n');
+        const waMsg = encodeURIComponent(
+            `*🛵 New Online Order — Green Point*\n\n` +
+            `*Customer:* ${name}\n*Phone:* ${phone}\n*Address:* ${address}\n*Payment:* ${payment}\n\n` +
+            `*Items:*\n${itemList}\n\n*Total: UGX ${total.toLocaleString()}*\n\n*Notes:* ${notes}`
+        );
+
+        // Also log to Google Sheets
+        fetch(SHEET_URL, {
+            method: 'POST', mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ type: 'order', name, phone, address, payment, items: JSON.stringify(cart), total, notes, timestamp: new Date().toISOString() })
+        }).catch(() => {});
+
+        window.open(`https://wa.me/256787150374?text=${waMsg}`, '_blank');
+
+        msgEl.style.cssText = 'display:block;background:#e6f4ea;color:#1D503A;border:1px solid #a8d5b5;padding:14px;border-radius:6px;font-weight:700;';
+        msgEl.textContent = `✅ Order sent! Thank you ${name}. We'll call ${phone} within 15 minutes to confirm.`;
+        cart.length = 0;
+        renderCart();
+    }
+    </script>
+    <script src="style/script.js"></script>
+</body>
+</html>
